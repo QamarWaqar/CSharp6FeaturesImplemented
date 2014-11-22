@@ -17,6 +17,13 @@ namespace CSharp_6_New_Features
     class Program
     {
         /// <summary>
+        /// Creating this indexer for checking "Indexer Initializers" in "Side Object Initilizers"
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public int this[int a] { get { return a; } set { a = value; } }
+
+        /// <summary>
         /// Just a refereshal on Properties
         /// </summary>
         public string dumb { get { return "World"; } set { value = "Hello"; } }
@@ -60,6 +67,10 @@ namespace CSharp_6_New_Features
             sD = () => { return "World"; };
             str = sD(); Console.WriteLine("Qamar Waqar: " + str);
             // end of Lambda Expressions //
+
+            // "Indexers Initializers" in "Side Object Initializers" //
+            Program pp = new Program {[0] = 1,[1] = 2, dumb = "Dummy" };
+            // end of "Indexers Initializers" in "Side Object Initializers" //
         }
 
         static void nullCoalescingOperator()
@@ -70,6 +81,8 @@ namespace CSharp_6_New_Features
             // if y is null then x is null, otherwise x is -1 //
             x = y ?? -1; // Note that ?? operator can only be applied to Null able types [int?] //
             Console.WriteLine(x);
+
+            // Null Conditional Operator "?." new in C# 6.0 //
         }
 
         /// <summary>
