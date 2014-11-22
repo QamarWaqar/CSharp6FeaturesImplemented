@@ -71,6 +71,17 @@ namespace CSharp_6_New_Features
             // "Indexers Initializers" in "Side Object Initializers" //
             Program pp = new Program {[0] = 1,[1] = 2, dumb = "Dummy" };
             // end of "Indexers Initializers" in "Side Object Initializers" //
+
+            // The new "nameof" Operator in C# 6.0 //
+            int nameOf = 0;
+            // it is just basically used to out put name but comes in handy when you need to use it in a lot of places //
+            // and then with just once change the string changes all over the code //
+            Console.WriteLine(nameof(nameOf));
+            // end of The new "nameof" Operator in C# 6.0 //
+
+            // Calling the exceptionFiltersFunction //
+            exceptionFiltersFunction();
+            // end of Calling the exceptionFiltersFuntion //
         }
 
         static void nullCoalescingOperator()
@@ -97,6 +108,31 @@ namespace CSharp_6_New_Features
             Program p = new Program();
             if (p?.dumb == "World") { Console.WriteLine("Dumb World"); }
             // end of Null Conditional Operator "?." new in C# 6.0 //
+        }
+
+        /// <summary>
+        /// // Now in C# you can filter the exceptions in the catch block too // previously in VB and F# //
+        // For Example //
+        // try {...} catch(Exception e) {...} finally {...}
+        // now you can do this //
+        // try {...}
+        // catch (Exception e) if(e.Message == "Hello World!") {...}
+        // finally {...}
+        // Also now you have await in catch and finally blocks //
+        /// </summary>
+        public static void exceptionFiltersFunction()
+        {
+            try
+            {
+                Exception e = new Exception("Hello this is an Exception");
+                throw e;
+            }
+            // Now you can't give catch block a body and neither else if statement nor else statement //
+            catch (Exception e) if (e.Message == "Hello this is an Exception") { Console.WriteLine("Catch's if statement"); }
+            finally
+            {
+                Console.WriteLine("Finally block executed");
+            }
         }
 
         /// <summary>
