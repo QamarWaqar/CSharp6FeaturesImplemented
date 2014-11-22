@@ -83,6 +83,20 @@ namespace CSharp_6_New_Features
             Console.WriteLine(x);
 
             // Null Conditional Operator "?." new in C# 6.0 //
+            /*
+              Point p = new Point();
+              if(p?.x==1){...} // so basically what you are doing here is checking if p is null 
+              // if p is null the whole statement is null // and statement doesnt goes on to checking after that //
+              // if(p.x?.ToString=="int"){ ... } // means if p.x is not equal to null and .ToString equals "int" //
+              // if(p?.x?.ToString=="int"){ ... } // means check if p is null, if not then its x member, if not then its
+                                       // ToString() method will be processed //
+              // if(p?){ ... } // if body will only be executed if p is not null // otherwise the if statement is null //
+              // you can also do this null-conditional operator on delegates too //
+              // last but not the least you can also use p's indexers in this // try to do this //
+            */
+            Program p = new Program();
+            if (p?.dumb == "World") { Console.WriteLine("Dumb World"); }
+            // end of Null Conditional Operator "?." new in C# 6.0 //
         }
 
         /// <summary>
